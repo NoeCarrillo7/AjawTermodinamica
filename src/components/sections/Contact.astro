@@ -1,0 +1,86 @@
+---
+import contacto from "../../assets/contacto/fondo.png";
+---
+
+<section class="relative min-h-[700px] overflow-hidden flex items-center">
+    
+    <div
+        class="absolute inset-0 bg-cover bg-center"
+        style={`background-image: url(${contacto.src});`}
+    >
+    </div>
+    <!-- CONTENIDO -->
+    <div class="relative z-10 w-7/8 mx-auto py-20">
+        <div class="w-full lg:w-[52%]">
+            <h2 class="text-[#00619A] text-4xl md:text-5xl font-medium mb-4">
+                CONTACTANOS
+            </h2>
+
+            <p class="text-[#40516b] text-sm md:text-base mb-8">
+                ¿Tienes un proyecto en puerta o requiere asistencia técnica
+                inmediata?
+            </p>
+
+            <form class="space-y-3">
+                <div class="grid grid-cols-1 md:grid-cols-2 gap-3">
+                    <input
+                        type="text"
+                        placeholder="Nombre"
+                        class="h-12 px-4 rounded-lg text-[#40516b] shadow-[0_4px_12px_rgba(0,0,0,0.18)] outline-none"
+                    />
+
+                    <input
+                        type="tel"
+                        placeholder="Teléfono"
+                        class="h-12 px-4 rounded-lg text-[#40516b] shadow-[0_4px_12px_rgba(0,0,0,0.18)] outline-none"
+                    />
+                </div>
+
+                <div class="grid grid-cols-1 md:grid-cols-2 gap-3">
+                    <input
+                        type="email"
+                        placeholder="Correo"
+                        class="h-12 px-4 rounded-lg text-[#40516b] shadow-[0_4px_12px_rgba(0,0,0,0.18)] outline-none"
+                    />
+
+                    <input
+                        type="text"
+                        placeholder="Empresa"
+                        class="h-12 px-4 rounded-lg text-[#40516b] shadow-[0_4px_12px_rgba(0,0,0,0.18)] outline-none"
+                    />
+                </div>
+
+                <textarea
+                    rows="5"
+                    placeholder="Cuéntanos sobre tu proyecto"
+                    class="w-full px-4 py-4 rounded-lg text-[#40516b] shadow-[0_4px_12px_rgba(0,0,0,0.18)] outline-none resize-none"
+                ></textarea>
+
+                <button
+                    type="submit"
+                    class="mt-2 w-[170px] h-11 rounded-lg bg-[#00619A] text-white text-sm shadow-md"
+                >
+                    ENVIAR
+                </button>
+            </form>
+
+            <!-- DATOS -->
+            <div class="mt-12 flex flex-col md:flex-row gap-6 md:gap-10 text-[#00619A] text-sm">
+                <div class="flex items-center gap-3">
+                    <span class="text-xl">icono</span>
+                    <span>contacto@ajaw.com.mx</span>
+                </div>
+
+                <div class="flex items-center gap-3">
+                    <span class="text-xl">icono</span>
+                    <span>+52 123 123 1221</span>
+                </div>
+
+                <div class="flex items-center gap-3">
+                    <span class="text-xl">icono</span>
+                    <span>Querétaro, México</span>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
