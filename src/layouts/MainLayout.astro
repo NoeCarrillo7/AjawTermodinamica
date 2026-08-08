@@ -1,6 +1,7 @@
 ---
 import '../styles/global.css';
 import Nav_Bar from "../components/common/Navbar.astro";
+import Footer from "../components/common/Footer.astro";
 
 
 interface Props {
@@ -24,7 +25,10 @@ const { title } = Astro.props;
 
         <body class="bg-[#F7FAFF] text-textos font-poppins antialiased min-h-screen flex flex-col justify-between">
             <Nav_Bar/>
-            <slot />
+            <main class="flex-1">
+                <slot />
+            </main>
+            <Footer/>
         </body>
     </html>
 

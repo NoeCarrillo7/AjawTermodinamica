@@ -1,0 +1,171 @@
+---
+import s1 from "../../assets/services/s1.png";
+import s2 from "../../assets/services/s2.png";
+import s3 from "../../assets/services/s3.png";
+import s4 from "../../assets/services/s4.png";
+
+import icono from "../../assets/services/icono.png";
+
+const services = [
+    {
+        title: "Diseño e Instalación de Cámaras Frías",
+        image: s1,
+        description:
+            "Proyectos llave en mano para almacenamiento congelado y refrigerado, cálculo de carga térmica y selección de equipos.",
+    },
+    {
+        title: "Mantenimiento Preventivo y Correctivo",
+        image: s2,
+        description:
+            "Programas de servicio programado y atención de emergencias 24/7 para minimizar tiempos de paro en planta.",
+    },
+    {
+        title: "Automatización y Monitoreo Remoto",
+        image: s3,
+        description:
+            "Implementación de sistemas SCADA/IoT para el control de temperatura en tiempo real y registro de datos histórico.",
+    },
+    {
+        title: "Auditoría de Eficiencia Energética",
+        image: s4,
+        description:
+            "Diagnóstico técnico para reducir el consumo eléctrico de plantas térmicas y sustitución de refrigerantes obsoletos.",
+    },
+];
+---
+
+<section class="services-section relative min-h-screen overflow-hidden text-white">
+    <div class="sticky top-0 z-30 backdrop-blur-xl px-8 sm:px-12 py-8">
+        <h2 class="text-6xl font-semibold text-right mb-10 mt-10 text-[#00558C] pr-20">
+            Nuestros <span class="text-[#00558C]">Servicios</span>
+        </h2>
+    </div>
+
+    <div class="relative w-full h-screen">
+        <div class="absolute inset-0 overflow-hidden rounded-[2rem]">
+            {
+                services.map((service, index) => (
+                    <div
+                        class={`service-card absolute inset-0 w-full h-full transition-all duration-700 ${
+                            index === 0 ? 'active' : 'inactive'
+                        }`}
+                        data-index={index}
+                    >
+                        <div class="grid h-full grid-cols-1 md:grid-cols-[1.1fr_0.9fr]">
+                            <div class="relative h-full">
+                                <img
+                                    src={service.image.src}
+                                    alt={service.title}
+                                    class="absolute inset-0 h-full w-full object-cover"
+                                />
+                            </div>
+
+                            <div class="flex items-center justify-center h-full p-12">
+                                <div class="max-w-xl p-8">
+                                    <img src={icono.src} class="h-14" alt="Icono servicio" />
+
+                                    <h2 class="mt-8 text-[#4A516F] text-4xl font-medium tracking-tigh">
+                                        {service.title}
+                                    </h2>
+
+                                    <p class="text-[#141B40] text-lg tracking-tight font-normal mt-6 mb-8">
+                                        {service.description}
+                                    </p>
+
+                                    <a
+                                        href="/contacto"
+                                        class="rounded-sm border border-[#141B40] py-2 px-8 text-sm text-[#141B40] transition hover:bg-[#486882]  hover:text-white">
+                                        CONTÁCTANOS
+                                    </a>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                ))
+            }
+
+            <div class="absolute right-8 top-3/4 z-20 flex -translate-y-1/2 flex-col items-center gap-4">
+                <button
+                    id="prev-service"
+                    type="button"
+                    class="text-3xl text-black flex h-12 w-12 items-center justify-center transition hover:scale-130"
+                        aria-label="Siguiente servicio"
+                >
+                    ↑
+                </button>
+                <span id="service-counter" class="text-sm font-semibold text-white">1 / {services.length}</span>
+                <button
+                    id="next-service"
+                    type="button"
+                    class="text-3xl text-black flex h-12 w-12 items-center justify-center transition hover:scale-130"
+                        aria-label="Siguiente servicio"
+                >
+                    ↓
+                </button>
+            </div>
+        </div>
+    </div>
+</section>
+<style>
+.service-card {
+    opacity: 0;
+    visibility: hidden;
+    transform: scale(0.98);
+    pointer-events: none;
+}
+
+.service-card.active {
+    opacity: 1;
+    visibility: visible;
+    transform: scale(1);
+    pointer-events: auto;
+    z-index: 20;
+}
+
+.service-card.inactive {
+    opacity: 0;
+    visibility: hidden;
+    transform: scale(0.98);
+    pointer-events: none;
+    z-index: 10;
+}
+</style>
+<script type="module">
+    window.addEventListener('DOMContentLoaded', () => {
+        const cards = Array.from(document.querySelectorAll('.service-card'));
+        const prevButton = document.getElementById('prev-service');
+        const nextButton = document.getElementById('next-service');
+        const counter = document.getElementById('service-counter');
+
+        let activeIndex = 0;
+
+        const updateCards = () => {
+            cards.forEach((card, index) => {
+                card.classList.toggle('active', index === activeIndex);
+                card.classList.toggle('inactive', index !== activeIndex);
+            });
+
+            if (prevButton) prevButton.disabled = activeIndex === 0;
+            if (nextButton) nextButton.disabled = activeIndex === cards.length - 1;
+            if (counter) counter.textContent = `${activeIndex + 1} / ${cards.length}`;
+        };
+
+        prevButton?.addEventListener('click', (event) => {
+            event.preventDefault();
+            if (activeIndex > 0) {
+                activeIndex -= 1;
+                updateCards();
+            }
+        });
+
+        nextButton?.addEventListener('click', (event) => {
+            event.preventDefault();
+            if (activeIndex < cards.length - 1) {
+                activeIndex += 1;
+                updateCards();
+            }
+        });
+
+        updateCards();
+    });
+</script>
