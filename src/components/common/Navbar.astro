@@ -1,26 +1,95 @@
 ---
-import { Image } from 'astro:assets';
-import logo from '../../assets/icon.png'
-
 ---
 
-
-<nav class="fixed pt-10 z-50 w-full">
+<nav id="main-nav" class="fixed top-0 pt-10 z-50 w-full transition-colors duration-300">
     <div class="w-7/8 flex mx-auto">
         <div class="w-1/2">
-            <Image 
-                src={logo} 
-                alt="Logo"
-                class="w-15"
+            <img 
+                id="nav-logo"
+                src="/img/icon.png" 
+                alt="Logo Ajaw Termodinamica"
+                class="w-15 transition-opacity duration-300"
                 loading="eager" 
             />
         </div>
-        <div class="w-1/2 flex text-white justify-end items-center gap-15">
-            <a href="#">Inicio</a>
-            <a href="#">Nosotros</a>
-            <a href="#">Servicios</a>
-            <a href="#">Contacto</a>
+        <div id="nav-links" class="w-1/2 flex text-white justify-end items-center gap-15 transition-colors duration-300">
+            <a href="#inicio" class="nav-link">Inicio</a>
+            <a href="#nosotros" class="nav-link">Nosotros</a>
+            <a href="#servicios" class="nav-link">Servicios</a>
+            <a href="#contacto" class="nav-link">Contacto</a>
+        </div>
     </div>
-    </div>
-    
 </nav>
+
+<style>
+    .nav-link {
+        position: relative;
+        padding-bottom: 6px;
+    }
+
+    .nav-link::after {
+        content: '';
+        position: absolute;
+        bottom: 0;
+        left: 0;
+        width: 0%;
+        height: 2px;
+        background-color: currentColor; 
+        transition: width 0.3s ease-in-out;
+    }
+
+    .nav-link.active::after {
+        width: 100%;
+    }
+</style>
+
+<script>
+    const navLogo = document.getElementById('nav-logo') as HTMLImageElement;
+    const navLinksContainer = document.getElementById('nav-links');
+    const allNavLinks = document.querySelectorAll<HTMLAnchorElement>('.nav-link');
+    const sections = document.querySelectorAll('[data-theme]');
+
+    const logoBlanco = '/img/icon.png';
+    const logoNegro = '/img/icon-azul.png';
+
+    const observerOptions = {
+        root: null,
+        rootMargin: '-20% 0px -70% 0px',
+        threshold: 0
+    };
+
+    const observer = new IntersectionObserver((entries) => {
+        entries.forEach((entry) => {
+            if (entry.isIntersecting) {
+                const targetId = entry.target.getAttribute('id');
+                const theme = entry.target.getAttribute('data-theme');
+
+                if (theme === 'light') {
+                    navLinksContainer?.classList.remove('text-white');
+                    navLinksContainer?.classList.add('text-titulos');
+                    if (navLogo && navLogo.src !== window.location.origin + logoNegro) {
+                        navLogo.src = logoNegro;
+                    }
+                } else {
+                    navLinksContainer?.classList.remove('text-titulos');
+                    navLinksContainer?.classList.add('text-white');
+                    if (navLogo && navLogo.src !== window.location.origin + logoBlanco) {
+                        navLogo.src = logoBlanco;
+                    }
+                }
+
+                if (targetId) {
+                    allNavLinks.forEach((link) => {
+                        if (link.getAttribute('href') === `#${targetId}`) {
+                            link.classList.add('active');
+                        } else {
+                            link.classList.remove('active');
+                        }
+                    });
+                }
+            }
+        });
+    }, observerOptions);
+
+    sections.forEach((section) => observer.observe(section));
+</script>
