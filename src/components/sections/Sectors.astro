@@ -1,0 +1,235 @@
+---
+import i1 from "../../assets/sectors/i1.png";
+import i2 from "../../assets/sectors/i2.png";
+import i3 from "../../assets/sectors/i3.png";
+import i4 from "../../assets/sectors/i4.png";
+
+const sectors = [
+    {
+        title: "ALIMENTOS Y BEBIDAS",
+        description:
+            "Conservación de productos perecederos con temperatura controlada para garantizar frescura y calidad.",
+        image: i1,
+    },
+    {
+        title: "FARMACEUTICA Y SALUD",
+        description:
+            "Almacenamiento seguro con temperatura controlada para medicamentos, vacunas e insumos médicos.",
+        image: i2,
+    },
+    {
+        title: "LOGISTICA Y MANTENIMIENTO",
+        description:
+            "Infraestructura que optimiza el almacenamiento y la distribución de productos.",
+        image: i3,
+    },
+    {
+        title: "MANOFACTURA E INDUSTRIA",
+        description:
+            "Soluciones industriales que impulsan procesos de producción más eficientes y confiables.",
+        image: i4,
+    },
+];
+---
+
+<section id="sectores" data-theme="light" class="sectores-section relative mb-0 text-white md:mb-10">
+    <h2 class="mb-15 text-center text-2xl font-medium tracking-tight text-titulos sm:text-3xl md:mb-0 md:text-5xl">
+        Sectores <span class="text-[#00558C]">Industriales</span>
+    </h2>
+
+    <div class="relative w-full md:h-[80vh]">
+        <div class="overflow-hidden md:absolute md:inset-0">
+            {
+                sectors.map((sector, index) => (
+                    <div
+                        class={`sectores-card absolute inset-0 h-full w-full transition-all duration-700 ${
+                            index === 0 ? "active" : "inactive"
+                        }`}
+                        data-index={index}
+                    >
+                        <!-- IMAGEN -->
+                        <img
+                            src={sector.image.src}
+                            alt={sector.title}
+                            class="absolute right-0 top-0 z-0 h-full w-[50%] object-contain object-right pr-16 max-md:inset-0 max-md:h-full max-md:w-full max-md:object-cover max-md:object-center max-md:pr-0"
+                        />
+
+                        <div class="absolute inset-0 z-[1] bg-[#F7FAFF]/80 md:hidden"></div>
+
+                        <!-- CONTENIDO -->
+                        <div class="grid h-full grid-cols-1 md:grid-cols-2">
+                            <div class="relative z-20 flex h-full items-center justify-center max-md:min-h-[70vh]">
+                                <div class="sectores-content relative z-[2] mt-8 max-w-xl p-8 text-slate-900 md:text-white max-md:pt-8 max-md:pb-8">
+
+                                    <h2 class="text-7xl font-medium tracking-tight text-black md:text-[#90959C] max-md:text-5xl max-sm:text-4xl">
+                                        {sector.title}
+                                    </h2>
+
+                                    <p class="mt-6 mb-8 text-sm sm:text-base md:text-lg font-normal tracking-tight text-textos">
+                                        {sector.description}
+                                    </p>
+
+                                    <a href="#contacto"
+                                        class="inline-block rounded-sm border border-textos px-8 py-2 text-sm text-textos transition hover:bg-[#486882] hover:text-white">
+                                        CONTÁCTANOS
+                                    </a>
+
+                                </div>
+                            </div>
+
+                            <div class="hidden md:block"></div>
+                        </div>
+                    </div>
+                ))
+            }
+
+            <!-- CONTROLES DESKTOP -->
+            <div class="absolute bottom-0 left-1/2 z-20 hidden -translate-x-1/2 items-center gap-8 text-white md:flex">
+                <button id="prev-sector" type="button"
+                    class="flex h-12 w-12 items-center justify-center text-3xl text-black transition hover:scale-110"
+                    aria-label="Sector anterior"> ←
+                </button>
+
+                <span id="sector-counter" class="text-sm font-semibold text-textos">
+                    1 / {sectors.length}
+                </span>
+
+                <button id="next-sector" type="button"
+                    class="flex h-12 w-12 items-center justify-center text-3xl text-black transition hover:scale-110"
+                    aria-label="Siguiente sector">→
+                </button>
+            </div>
+
+            <!-- CONTROLES MÓVIL -->
+            <div class="mx-auto mt-4 flex w-full max-w-md items-center justify-center gap-8 p-3 text-black md:hidden">
+                <button id="prev-sector-mobile" type="button" class="flex h-12 w-12 items-center justify-center text-3xl transition hover:scale-110"
+                    aria-label="Sector anterior"> 
+                    ←
+                </button>
+
+                <span id="sector-counter-mobile" class="text-sm font-semibold">
+                    1 / {sectors.length}
+                </span>
+
+                <button id="next-sector-mobile" type="button" class="flex h-12 w-12 items-center justify-center text-3xl transition hover:scale-110"
+                    aria-label="Siguiente sector">
+                    →
+                </button>
+            </div>
+        </div>
+    </div>
+</section>
+
+<style>
+    .sectores-card.active {
+        opacity: 1;
+        visibility: visible;
+        transform: translateX(0) scale(1);
+        pointer-events: auto;
+        z-index: 10;
+        animation: sector-card-in 0.7s ease-out;
+    }
+
+    .sectores-card.inactive {
+        opacity: 0;
+        visibility: hidden;
+        transform: translateX(20px) scale(0.98);
+        pointer-events: none;
+        z-index: 0;
+    }
+
+    @keyframes sector-card-in {
+        from {
+            opacity: 0;
+            transform: translateX(20px) scale(0.98);
+        }
+
+        to {
+            opacity: 1;
+            transform: translateX(0) scale(1);
+        }
+    }
+
+    @media (max-width: 767px) {
+        .sectores-card {
+            position: relative;
+            inset: auto;
+            width: 100%;
+            height: auto;
+            opacity: 1;
+            visibility: visible;
+            transform: none;
+            pointer-events: auto;
+            z-index: 1;
+            margin-bottom: 0;
+            overflow: hidden;
+        }
+
+        .sectores-card.inactive {
+            display: none;
+            opacity: 0;
+            visibility: hidden;
+            pointer-events: none;
+            z-index: 0;
+        }
+    }
+</style>
+
+<script type="module">
+    window.addEventListener("DOMContentLoaded", () => {
+        const cards = Array.from(document.querySelectorAll(".sectores-card"));
+        const prevButton = document.getElementById("prev-sector");
+        const nextButton = document.getElementById("next-sector");
+        const counter = document.getElementById("sector-counter");
+        const prevButtonMobile = document.getElementById("prev-sector-mobile");
+        const nextButtonMobile = document.getElementById("next-sector-mobile");
+        const counterMobile = document.getElementById("sector-counter-mobile");
+
+        let activeIndex = 0;
+
+        const updateCards = () => {
+            cards.forEach((card, index) => {
+                card.classList.toggle("active", index === activeIndex);
+                card.classList.toggle("inactive", index !== activeIndex);
+            });
+
+            const isFirst = activeIndex === 0;
+            const isLast = activeIndex === cards.length - 1;
+
+            if (prevButton) prevButton.disabled = isFirst;
+            if (nextButton) nextButton.disabled = isLast;
+            if (prevButtonMobile) prevButtonMobile.disabled = isFirst;
+            if (nextButtonMobile) nextButtonMobile.disabled = isLast;
+
+            const text = `${activeIndex + 1} / ${cards.length}`;
+
+            if (counter) counter.textContent = text;
+            if (counterMobile) counterMobile.textContent = text;
+        };
+
+        const goPrev = (event) => {
+            event.preventDefault();
+
+            if (activeIndex > 0) {
+                activeIndex -= 1;
+                updateCards();
+            }
+        };
+
+        const goNext = (event) => {
+            event.preventDefault();
+
+            if (activeIndex < cards.length - 1) {
+                activeIndex += 1;
+                updateCards();
+            }
+        };
+
+        prevButton?.addEventListener("click", goPrev);
+        nextButton?.addEventListener("click", goNext);
+        prevButtonMobile?.addEventListener("click", goPrev);
+        nextButtonMobile?.addEventListener("click", goNext);
+
+        updateCards();
+    });
+</script>

@@ -36,31 +36,48 @@ const services = [
 
 <section id="servicios" data-theme="light" class="services-section relative min-h-screen overflow-hidden text-white">
     <div class="sticky top-0 z-30 backdrop-blur-xl px-8 sm:px-12 py-8">
-        <h2 class="text-5xl font-semibold text-right text-[#00558C] pr-20">
+        <h2 class="text-2xl font-medium tracking-tight text-titulos lg:text-5xl md:text-4xl text-right pr-20">
             Nuestros <span class="text-[#00558C]">Servicios</span>
         </h2>
     </div>
 
-    <div class="relative w-full h-screen">
-        <div class="absolute inset-0 overflow-hidden rounded-[2rem]">
+    <div class="relative w-full md:h-screen">
+        <div class="md:absolute md:inset-0 md:overflow-hidden overflow-visible relative">
             {
                 services.map((service, index) => (
                     <div
-                        class={`service-card absolute inset-0 w-full h-full transition-all duration-700 ${
+                        class={`service-card relative inset-auto w-full h-auto transition-all duration-700 md:absolute md:inset-0 md:h-full max-md:mx-auto max-md:max-w-[85vw] max-md:mb-6 max-md:min-h-[26rem] max-md:rounded-[2rem] max-md:overflow-hidden ${
                             index === 0 ? 'active' : 'inactive'
                         }`}
                         data-index={index}
                     >
-                        <div class="grid h-full grid-cols-1 md:grid-cols-[1.1fr_0.9fr]">
-                            <div class="relative h-full">
+                       <div class="grid h-full grid-cols-1 gap-6 md:grid-cols-[0.9fr_0.8fr]">
+                            <div class="relative h-[26rem] sm:h-[30rem] md:h-full">
                                 <img
                                     src={service.image.src}
                                     alt={service.title}
-                                    class="absolute inset-0 h-full w-full object-cover"
+                                    class="h-full w-full object-cover md:absolute md:inset-0"
                                 />
+                                <div class="absolute inset-0 bg-[#E9F2FC]/65 md:hidden" />
+                                <div class="absolute inset-0 flex flex-col justify-end p-6 md:hidden">
+                                    <div class="p-4">
+                                        <img src={icono.src} class="h-10" alt="Icono servicio" />
+                                        <h2 class="mt-4 text-2xl font-medium md:font-semibold tracking-tight text-slate-900 sm:text-2xl">
+                                            {service.title}
+                                        </h2>
+                                        <p class="mt-4 text-sm leading-6 text-slate-900 mb-5">
+                                            {service.description}
+                                        </p>
+                                        <a
+                                            href="#contacto"
+                                            class="mt-5 rounded-sm border border-slate-900 py-2 px-8 text-sm text-slate-900 transition hover:bg-[#486882] hover:text-white">
+                                            CONTÁCTANOS
+                                        </a>
+                                    </div>
+                                </div>
                             </div>
 
-                            <div class="flex items-center justify-center h-full p-12">
+                            <div class="hidden md:flex items-center justify-center h-full p-12">
                                 <div class="max-w-xl p-8">
                                     <img src={icono.src} class="h-14" alt="Icono servicio" />
 
@@ -74,7 +91,7 @@ const services = [
 
                                     <a
                                         href="/contacto"
-                                        class="rounded-sm border border-[#141B40] py-2 px-8 text-sm text-[#141B40] transition hover:bg-[#486882]  hover:text-white">
+                                        class="rounded-sm border border-[#141B40] py-2 px-8 text-sm text-[#141B40] transition hover:bg-[#486882] hover:text-white">
                                         CONTÁCTANOS
                                     </a>
                                 </div>
@@ -84,12 +101,12 @@ const services = [
                 ))
             }
 
-            <div class="absolute right-8 top-3/4 z-20 flex -translate-y-1/2 flex-col items-center gap-4">
+            <div class="absolute right-8 top-3/4 z-20 hidden md:flex flex-col items-center gap-4 -translate-y-1/2">
                 <button
                     id="prev-service"
                     type="button"
-                    class="text-3xl text-black flex h-12 w-12 items-center justify-center transition hover:scale-130"
-                        aria-label="Siguiente servicio"
+                    class="text-3xl text-black flex h-12 w-12 items-center justify-center transition hover:scale-110"
+                    aria-label="Servicio anterior"
                 >
                     ↑
                 </button>
@@ -97,8 +114,8 @@ const services = [
                 <button
                     id="next-service"
                     type="button"
-                    class="text-3xl text-black flex h-12 w-12 items-center justify-center transition hover:scale-130"
-                        aria-label="Siguiente servicio"
+                    class="text-3xl text-black flex h-12 w-12 items-center justify-center transition hover:scale-110"
+                    aria-label="Siguiente servicio"
                 >
                     ↓
                 </button>
@@ -128,6 +145,26 @@ const services = [
     transform: scale(0.98);
     pointer-events: none;
     z-index: 10;
+}
+
+@media (max-width: 767px) {
+    .service-card,
+    .service-card.inactive {
+        position: relative;
+        inset: auto;
+        width: 100%;
+        height: auto;
+        opacity: 1;
+        visibility: visible;
+        transform: none;
+        pointer-events: auto;
+        z-index: 1;
+        margin-bottom: 1.5rem;
+    }
+
+    .service-card.active {
+        z-index: 1;
+    }
 }
 </style>
 <script type="module">

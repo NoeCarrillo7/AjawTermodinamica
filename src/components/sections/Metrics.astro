@@ -1,33 +1,63 @@
 ---
-import { Image } from 'astro:assets';
-import metrics from '../../assets/metricsImage.png'
+import { Image } from "astro:assets";
+import metrics from "../../assets/metricsImage.png";
+import metricsMovil from "../../assets/metricsMovil.png";
 ---
 
-
-
-
 <section data-theme="light">
-    <Image
-        src={metrics}
-        alt="Metrics Imagen"
-        class="w-full h-auto object-cover mb-130 md:mb-0"
-        loading="eager"
-    />
+    <!-- IMAGEN DESKTOP -->
+    <img src={metrics.src} alt="" class="hidden md:block" />
 
-    <div class="w-full absolute top-190 md:top-250 z-10 border border">
-        <div class="w-7/8 mx-auto flex flex-col-reverse md:flex-row justify-between items-center">
-            <div class="md:w-1/4 flex flex-col text-center gap-3 md:gap-7">
-                <h1 class="text-[#90959C] md:text-5xl text-xl font-medium">24 / 7</h1>
-                <p class="text-[#141B40] md:text-lg text-xs tracking-tight font-normal">Atención a emergencias críticas en planta.</p>
-                <h1 class="text-[#90959C] md:text-5xl text-xl font-medium">100%</h1>
-                <p class="text-[#141B40] md:text-lg text-xs tracking-tight font-normal">Cumplimiento en normativas de seguridad térmica.</p>
-                <h1 class="text-[#90959C] md:text-5xl text-xl font-medium">365 <span class="md:text-3xl">días</span></h1>
-                <p class="text-[#141B40] md:text-lg text-xs tracking-tight font-normal">Monitoreo remoto y registro de temperatura continuo.</p>
+    <!-- IMAGEN MÓVIL -->
+    <img src={metricsMovil.src} alt="" class="block md:hidden" />
+
+    <div class="absolute top-160 z-10 w-full md:top-250">
+        <div class="mx-auto flex w-[87.5%] flex-col-reverse items-center justify-between gap-8 md:flex-row md:gap-0">
+
+            <!-- ESTADÍSTICAS -->
+            <div class="flex w-full flex-col gap-2 text-center md:w-1/4 md:gap-7">
+                <h1 class="text-xl font-medium text-[#90959C] sm:text-2xl md:text-5xl">
+                    24 / 7
+                </h1>
+
+                <p class="text-xs font-normal tracking-tight text-[#141B40] sm:text-sm md:text-lg">
+                    Atención a emergencias críticas en planta.
+                </p>
+
+                <h1 class="text-xl font-medium text-[#90959C] sm:text-2xl md:text-5xl">
+                    100%
+                </h1>
+
+                <p class="text-xs font-normal tracking-tight text-[#141B40] sm:text-sm md:text-lg">
+                    Cumplimiento en normativas de seguridad térmica.
+                </p>
+
+                <h1 class="text-xl font-medium text-[#90959C] sm:text-2xl md:text-5xl">
+                    365
+                    <span class="text-base sm:text-xl md:text-3xl">días</span>
+                </h1>
+
+                <p class="text-xs font-normal tracking-tight text-[#141B40] sm:text-sm md:text-lg">
+                    Monitoreo remoto y registro de temperatura continuo.
+                </p>
             </div>
-            <div class="md:w-3/8 flex flex-col text-center items-center mt-10 md:text-end md:items-end">
-                <h1 class="text-[#4A516F] md:text-4xl text-2xl font-medium tracking-tight">Soluciones integrales <br> de refrigeración</h1>
-                <a href="#" class="border border py-2 px-8 text-sm rounded-sm mt-5 transition hover:bg-[#486882] hover:text-white">CONTACTANOS</a>
+
+            <!-- TEXTO + BOTÓN -->
+            <div class="mt-6 flex w-full flex-col items-center text-center md:mt-10 md:w-3/8 md:items-end md:text-end">
+                <h1 class="text-2xl font-medium tracking-tight text-[#4A516F] sm:text-3xl md:text-4xl">
+                    Soluciones integrales
+                    <br />
+                    de refrigeración
+                </h1>
+
+                <a
+                    href="#"
+                    class="mt-5 rounded-sm border px-8 py-2 text-sm transition hover:bg-[#486882] hover:text-white"
+                >
+                    CONTACTANOS
+                </a>
             </div>
+
         </div>
     </div>
 </section>

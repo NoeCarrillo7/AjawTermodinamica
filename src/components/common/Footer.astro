@@ -3,105 +3,97 @@ import logo from "../../assets/footer/logo.png";
 ---
 
 <footer class="bg-[#005A8D] text-white">
-
     <!-- CONTENIDO PRINCIPAL -->
     <div class="w-11/12 max-w-7xl mx-auto py-16">
-
-        <div class="grid grid-cols-1 md:grid-cols-4 gap-12 items-center">
-
+        <div class="grid grid-cols-1 md:grid-cols-4 gap-12 items-center text-center md:text-left">
+            <!-- LOGO -->
             <div class="flex justify-center md:justify-start">
-                <img 
+                <img
                     src={logo.src}
                     alt="Ajaw Termodinámica"
                     class="w-64 object-contain"
                 />
             </div>
-
-            <div>
-                <h3 class="text-lg font-semibold mb-8 tracking-wide">
-                    LINKS
-                </h3>
-
+            <!-- LINKS -->
+            <div class="flex flex-col items-center md:items-start">
+                <h3 class="text-lg font-semibold mb-8 tracking-wide">LINKS</h3>
                 <ul class="space-y-4 text-sm text-white/90">
                     <li>
-                        <a href="/">INICIO</a>
+                        <a href="#inicio" class="hover:text-white transition">
+                            INICIO
+                        </a>
                     </li>
-
                     <li>
-                        <a href="/nosotros">NOSOTROS</a>
+                        <a href="#nosotros" class="hover:text-white transition">
+                            NOSOTROS
+                        </a>
                     </li>
-
                     <li>
-                        <a href="/productos">PRODUCTOS</a>
+                        <a
+                            href="#servicios"
+                            class="hover:text-white transition"
+                        >
+                            SERVICIOS
+                        </a>
                     </li>
-
                     <li>
-                        <a href="/contacto">CONTACTO</a>
+                        <a href="#contacto" class="hover:text-white transition">
+                            CONTACTO
+                        </a>
                     </li>
                 </ul>
             </div>
-
-            <div>
-
-                <h3 class="text-lg font-semibold mb-8 tracking-wide">
-                    SOCIAL
-                </h3>
-
-
-                <div class="flex gap-10">
-
-                    <a>
+            <!-- SOCIAL -->
+            <div class="flex flex-col items-center md:items-start">
+                <h3 class="text-lg font-semibold mb-8 tracking-wide">SOCIAL</h3>
+                <div class="flex justify-center md:justify-start gap-10">
+                    <a
+                        href="#"
+                        aria-label="Facebook"
+                        class="text-xl hover:scale-110 transition-transform">
                         <i class="fa-brands fa-facebook-f"></i>
                     </a>
-
-
-                    <a>
+                    <a
+                        href="#"
+                        aria-label="WhatsApp"
+                        class="text-xl hover:scale-110 transition-transform">
                         <i class="fa-brands fa-whatsapp"></i>
                     </a>
-
-
-                    <a>
+                    <a
+                        href="#"
+                        aria-label="Instagram"
+                        class="text-xl hover:scale-110 transition-transform">
                         <i class="fa-brands fa-instagram"></i>
                     </a>
-
                 </div>
-
             </div>
-
-
-            <div>
-
+            <!-- CONTACTO -->
+            <div class="flex flex-col items-center md:items-start">
                 <h3 class="text-lg font-semibold mb-8 tracking-wide">
                     CONTACTO
                 </h3>
-
-
                 <div class="space-y-5 text-sm text-white/90">
-
-
-                    <div class="flex gap-4 items-center">
-                        <span>icono</span>
-                        <p>+000 00 00 000</p>
+                    <!-- TELÉFONO -->
+                    <div
+                        class="flex gap-4 items-center justify-center md:justify-start">
+                        <i class="fa-solid fa-phone text-base"></i>
+                        <p>+52 123 123 1221</p>
                     </div>
-
-
-                    <div class="flex gap-4 items-center">
-                        <span>icono</span>
-                        <p>correo@dominio.com.mx</p>
+                    <!-- CORREO -->
+                    <div
+                        class="flex gap-4 items-center justify-center md:justify-start">
+                        <i class="fa-solid fa-envelope text-base"></i>
+                        <p>contacto@ajaw.com.mx</p>
                     </div>
-
-
-                    <div class="flex gap-4 items-center">
-                        <span>icono</span>
-                        <p>Ubicación</p>
+                    <!-- UBICACIÓN -->
+                    <div
+                        class="flex gap-4 items-center justify-center md:justify-start">
+                        <i class="fa-solid fa-location-dot text-base"></i>
+                        <p>Querétaro, México</p>
                     </div>
                 </div>
             </div>
-
         </div>
-
-
-
         <!-- LINEA -->
         <div class="border-t border-white/30 mt-14 pt-6 text-center">
             <p class="text-xs text-white/80">
@@ -111,15 +103,8 @@ import logo from "../../assets/footer/logo.png";
                 Términos y Condiciones | Política de Privacidad
             </p>
         </div>
-
     </div>
-
-
-
-    <!-- CREDITOS -->
     <div class="bg-white text-black py-3 text-center text-sm">
         Diseño y desarrollo web
-        <span class="">
-        </span>
     </div>
 </footer>
