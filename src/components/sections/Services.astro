@@ -36,7 +36,7 @@ const services = [
 
 <section id="servicios" data-theme="light" class="services-section relative min-h-screen overflow-hidden text-white">
     <div class="sticky top-0 z-30 backdrop-blur-xl px-8 sm:px-12 py-8">
-        <h2 class="text-2xl font-medium tracking-tight text-titulos lg:text-5xl md:text-4xl text-right pr-20">
+        <h2 class="animar slideRight text-2xl font-medium tracking-tight text-titulos lg:text-5xl md:text-4xl text-right pr-20">
             Nuestros <span class="text-[#00558C]">Servicios</span>
         </h2>
     </div>
@@ -56,13 +56,13 @@ const services = [
                                 <img
                                     src={service.image.src}
                                     alt={service.title}
-                                    class="h-full w-full object-cover md:absolute md:inset-0"
+                                    class="animar zoom h-full w-full object-cover md:absolute md:inset-0"
                                 />
                                 <div class="absolute inset-0 bg-[#E9F2FC]/65 md:hidden" />
                                 <div class="absolute inset-0 flex flex-col justify-end p-6 md:hidden">
                                     <div class="p-4">
                                         <img src={icono.src} class="h-10" alt="Icono servicio" />
-                                        <h2 class="mt-4 text-2xl font-medium md:font-semibold tracking-tight text-slate-900 sm:text-2xl">
+                                        <h2 class="text-2xl font-medium md:font-semibold tracking-tight text-slate-900 sm:text-2xl">
                                             {service.title}
                                         </h2>
                                         <p class="mt-4 text-sm leading-6 text-slate-900 mb-5">

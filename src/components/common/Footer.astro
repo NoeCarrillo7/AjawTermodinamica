@@ -1,21 +1,26 @@
 ---
 import logo from "../../assets/footer/logo.png";
+import LOGOHBL from "../../assets/logoHBL.png";
 ---
 
 <footer class="bg-[#005A8D] text-white">
     <!-- CONTENIDO PRINCIPAL -->
     <div class="w-11/12 max-w-7xl mx-auto py-16">
-        <div class="grid grid-cols-1 md:grid-cols-4 gap-12 items-center text-center md:text-left">
+        <div
+            class="grid grid-cols-1 md:grid-cols-4 gap-12 items-center text-center md:text-left"
+        >
             <!-- LOGO -->
             <div class="flex justify-center md:justify-start">
                 <img
                     src={logo.src}
                     alt="Ajaw Termodinámica"
-                    class="w-64 object-contain"
+                    class="animar scale w-64 object-contain"
                 />
             </div>
             <!-- LINKS -->
-            <div class="flex flex-col items-center md:items-start">
+            <div
+                class="animar slideTop flex flex-col items-center md:items-start"
+            >
                 <h3 class="text-lg font-semibold mb-8 tracking-wide">LINKS</h3>
                 <ul class="space-y-4 text-sm text-white/90">
                     <li>
@@ -44,50 +49,60 @@ import logo from "../../assets/footer/logo.png";
                 </ul>
             </div>
             <!-- SOCIAL -->
-            <div class="flex flex-col items-center md:items-start">
+            <div
+                class="animar slideTop flex flex-col items-center md:items-start"
+            >
                 <h3 class="text-lg font-semibold mb-8 tracking-wide">SOCIAL</h3>
                 <div class="flex justify-center md:justify-start gap-10">
                     <a
                         href="#"
                         aria-label="Facebook"
-                        class="text-xl hover:scale-110 transition-transform">
+                        class="text-xl hover:scale-110 transition-transform"
+                    >
                         <i class="fa-brands fa-facebook-f"></i>
                     </a>
                     <a
                         href="#"
                         aria-label="WhatsApp"
-                        class="text-xl hover:scale-110 transition-transform">
+                        class="text-xl hover:scale-110 transition-transform"
+                    >
                         <i class="fa-brands fa-whatsapp"></i>
                     </a>
                     <a
                         href="#"
                         aria-label="Instagram"
-                        class="text-xl hover:scale-110 transition-transform">
+                        class="text-xl hover:scale-110 transition-transform"
+                    >
                         <i class="fa-brands fa-instagram"></i>
                     </a>
                 </div>
             </div>
             <!-- CONTACTO -->
-            <div class="flex flex-col items-center md:items-start">
+            <div
+                class="animar slideTop flex flex-col items-center md:items-start"
+            >
                 <h3 class="text-lg font-semibold mb-8 tracking-wide">
                     CONTACTO
                 </h3>
                 <div class="space-y-5 text-sm text-white/90">
                     <!-- TELÉFONO -->
                     <div
-                        class="flex gap-4 items-center justify-center md:justify-start">
+                        class="flex gap-4 items-center justify-center md:justify-start"
+                    >
                         <i class="fa-solid fa-phone text-base"></i>
                         <p>+52 123 123 1221</p>
                     </div>
                     <!-- CORREO -->
                     <div
-                        class="flex gap-4 items-center justify-center md:justify-start">
+                        class="flex gap-4 items-center justify-center md:justify-start"
+                    >
                         <i class="fa-solid fa-envelope text-base"></i>
                         <p>contacto@ajaw.com.mx</p>
                     </div>
                     <!-- UBICACIÓN -->
                     <div
-                        class="flex gap-4 items-center justify-center md:justify-start">
+                        class="flex gap-4 items-center justify-center md:justify-start"
+                    >
                         <i class="fa-solid fa-location-dot text-base"></i>
                         <p>Querétaro, México</p>
                     </div>
@@ -95,7 +110,9 @@ import logo from "../../assets/footer/logo.png";
             </div>
         </div>
         <!-- LINEA -->
-        <div class="border-t border-white/30 mt-14 pt-6 text-center">
+        <div
+            class="animar slideBottom border-t border-white/30 mt-14 pt-6 text-center"
+        >
             <p class="text-xs text-white/80">
                 2026 AJaw Termodinámica. Todos los derechos reservados.
             </p>
@@ -104,7 +121,21 @@ import logo from "../../assets/footer/logo.png";
             </p>
         </div>
     </div>
-    <div class="bg-white text-black py-3 text-center text-sm">
-        Diseño y desarrollo web
+    <div
+        class="bg-white text-black py-3 flex items-center justify-center gap-2 text-sm"
+    >
+        <span>Diseño y desarrollo web</span>
+        <a
+            href="https://horecabl.com.mx/"
+            target="_blank"
+            rel="noopener noreferrer"
+            class="flex items-center gap-2 hover:opacity-70 transition-opacity"
+        >
+            <img
+                src={LOGOHBL.src}
+                alt="Nombre de la empresa"
+                class="h-5 w-auto"
+            />
+        </a>
     </div>
 </footer>
